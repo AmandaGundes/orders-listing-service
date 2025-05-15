@@ -1,0 +1,22 @@
+### Criar Order
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "customer_name": "João Silva"
+}
+
+### Listar Orders (REST)
+GET http://localhost:8080/order
+
+### Listar Orders (gRPC)
+# Use grpcurl:
+grpcurl -plaintext -d '{}' localhost:50051 orders.OrderService/ListOrders
+
+### Listar Orders (GraphQL)
+POST http://localhost:8081/query
+Content-Type: application/json
+
+{
+  "query": "{ listOrders { id customerName createdAt } }"
+}
